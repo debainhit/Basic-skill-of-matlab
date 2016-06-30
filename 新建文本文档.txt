@@ -1,0 +1,8 @@
+h  = fspecial('gausssian',25,15);
+g = imfilter(f,h,'replicate');
+imshow(g);
+g = im2bw(g, 1.5*graythresh(g));
+figure, imshow(g);
+
+s = bworph(g, 'skel', Inf);
+s1 = bworph(s, 'spur', 8);
